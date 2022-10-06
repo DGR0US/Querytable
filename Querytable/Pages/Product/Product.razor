@@ -1,30 +1,30 @@
-﻿@page "/Customer"
+﻿@page "/Product"
 
 @if (Data != null)
 {
     <MudTable Items="@Data" Hover="true" Breakpoint="Breakpoint.Sm" LoadingProgressColor="Color.Info">
         <HeaderContent>
             <MudTh>ID</MudTh>
+            <MudTh>Code</MudTh>
             <MudTh>Name1</MudTh>
             <MudTh>Name2</MudTh>
-            <MudTh>Sex</MudTh>
-            <MudTh>Age</MudTh>
+            <MudTh>Price</MudTh>
         </HeaderContent>
         <RowTemplate>
             <MudTd DataLabel="ID">@context.id</MudTd>
+            <MudTd DataLabel="Code">@context.code</MudTd>
             <MudTd DataLabel="Name1">@context.name1</MudTd>
             <MudTd DataLabel="Name2">@context.name2</MudTd>
-            <MudTd DataLabel="Sex">@context.sex</MudTd>
-            <MudTd DataLabel="Age">@context.age</MudTd>
+            <MudTd DataLabel="Price">@context.price</MudTd>
         </RowTemplate>
     </MudTable>
 }
 
 @code {
-    List<customer> Data = new List<customer>();
+    List<product> Data = new List<product>();
     protected override void OnInitialized()
     {
-        Data = customerService.GetAllCustomer();
+        Data = productService.GetAllProduct();
         StateHasChanged();
     }
 }
